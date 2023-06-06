@@ -1,0 +1,19 @@
+  Title:
+    CSS-12 (Modelo 1: One-dimension) 
+  Data:
+    File is "C:\Users\JC Bazo Alvarez\OneDrive\Escritorio\Rdrg Mar Data/css12_data.csv";
+  Variable:
+    Names are
+      id css1 css2 css3 css4 css5 css6 css7 css8 css9 css10 css11 css12;
+    Usevariables are
+      css1 css2 css3 css4 css5 css6 css7 css8 css9 css10 css11 css12;
+    Categorical are all;
+  Analysis:
+    DIFFTEST IS deriv2.dat;
+    estimator = wlsmv;
+  Model:
+    css BY css1* css2 css3 css4 css5 css6 css7 css8 css9 css10 css11 css12;
+    css@1;
+  Output:stdyx;
+  Savedata:
+    DIFFTEST IS deriv1.dat; 

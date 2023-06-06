@@ -1,0 +1,32 @@
+  Title:
+    CSS-12 (Moodel 4: Bifactor <- McElroy et al)
+  Data:
+      File is "C:\Users\JC Bazo Alvarez\OneDrive\Escritorio\Rdrg Mar Data/css12_data.csv";
+  Variable:
+    Names are
+      id css1 css2 css3 css4 css5 css6 css7 css8 css9 css10 css11 css12;
+    Usevariables are
+      css1 css2 css3 css4 css5 css6 css7 css8 css9 css10 css11 css12;
+    Categorical are all;
+  Analysis:
+    parameter = THETA;
+    estimator = wlsmv;
+    DIFFTEST IS deriv3.dat; 
+  Model:
+    css BY css1* css2 css3 css4 css5 css6 css7 css8 css9 css10 css11 css12;
+    css@1;
+    excs BY css1* css3 css6;
+    excs@1;
+    comp BY css2* css7 css10; 
+    comp@1;
+    dist BY css4* css8 css9; 
+    dist@1;
+    reas BY css5* css11 css12; 
+    reas@1;
+    css WITH excs@0 comp@0 dist@0 reas@0;
+    excs WITH comp@0 dist@0 reas@0;
+    comp WITH dist@0 reas@0;
+    dist WITH reas@0;
+  Output:stdyx;
+  Savedata:
+    DIFFTEST IS deriv4.dat; 

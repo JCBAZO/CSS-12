@@ -1,0 +1,22 @@
+  Title:
+    CSS-12 (Model 2: Four-dimension) 
+  Data:
+    File is "C:\Users\JC Bazo Alvarez\OneDrive\Escritorio\Rdrg Mar Data/css12_data.csv";
+  Variable:
+    Names are
+      id css1 css2 css3 css4 css5 css6 css7 css8 css9 css10 css11 css12;
+    Usevariables are
+      css1 css2 css3 css4 css5 css6 css7 css8 css9 css10 css11 css12;
+    Categorical are all;
+  Analysis:
+    DIFFTEST IS deriv3.dat;
+    estimator = wlsmv;
+  Model:
+    excs BY css1* css3 css6; 
+    comp BY css2* css7 css10; 
+    dist BY css4* css8 css9; 
+    reas BY css5* css11 css12;
+    excs@1 comp@1 dist@1 reas@1; 
+  Output:stdyx;
+  Savedata:
+    DIFFTEST IS deriv2.dat; 

@@ -1,0 +1,28 @@
+  Title:
+    CSS-12 (Model 3: Bifactor-ESEM) 
+  Data:
+    File is "C:\Users\JC Bazo Alvarez\OneDrive\Escritorio\Rdrg Mar Data/css12_data.csv";
+  Variable:
+    Names are
+      id css1 css2 css3 css4 css5 css6 css7 css8 css9 css10 css11 css12;
+    Usevariables are
+      css1 css2 css3 css4 css5 css6 css7 css8 css9 css10 css11 css12;
+    Categorical are all;
+  Analysis:
+    DIFFTEST IS deriv4.dat; 
+    estimator = wlsmv;
+    rotation = target (orthogonal)
+  Model:
+    css BY css1 css2 css3 css4 css5 css6 css7 css8 css9 css10 css11 css12 (*1);
+ 
+    excs BY css1 css3 css6 
+        css2~0 css7~0 css10~0 css4~0 css8~0 css9~0 css5~0 css11~0 css12~0 (*1);
+    comp BY css2 css7 css10 
+        css1~0 css3~0 css6~0 css4~0 css8~0 css9~0 css5~0 css11~0 css12~0 (*1);
+    dist BY css4 css8 css9 
+        css1~0 css3~0 css6~0 css2~0 css7~0 css10~0 css5~0 css11~0 css12~0 (*1); 
+    reas BY css5 css11 css12 
+        css1~0 css3~0 css6~0 css2~0 css7~0 css10~0 css4~0 css8~0 css9~0 (*1);
+  Output:stdyx;
+  Savedata:
+    DIFFTEST IS deriv3.dat; 
